@@ -1,0 +1,30 @@
+Index: jglobus.spec
+===================================================================
+--- jglobus.spec	(revision 24563)
++++ jglobus.spec	(working copy)
+@@ -2,7 +2,7 @@
+ Summary: An implementation of Globus for Java
+ License: Apache 2.0
+ Version: 2.1.0
+-Release: 9%{?dist}
++Release: 10bh%{?dist}
+ URL: http://www.globus.org/toolkit/jglobus/
+ Group: System Environment/Libraries
+ 
+@@ -31,6 +31,8 @@
+ # See SOFTWARE-2347
+ Patch3: 2347-resource-accumulation.patch
+ 
++Patch4: protocols.patch
++
+ BuildArch: noarch
+ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+ 
+@@ -103,6 +105,7 @@
+ %endif
+ %patch2 -p1
+ %patch3 -p1
++%patch4 -p0
+ 
+ find -name '*.class' -exec rm -f '{}' \;
+ find -name '*.jar' -exec rm -f '{}' \;
